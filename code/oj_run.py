@@ -13,10 +13,7 @@ random_crop = 0
 random_scale = 0
 random_brightness = 0
 flip_left_right = False
-
-# Epoch calculations
-
-
+dataset_size = 18000
 
 # Sweep values
 learning_rates = [x / 100.0 for x in range(1,21,2)]

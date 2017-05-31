@@ -4,10 +4,10 @@ import numpy as np
 import pickle
 import shutil
 #for small data
-CAT_SIZE = 100
+#CAT_SIZE = 100
 
 #for full data
-#CAT_SIZE = 10**5 
+CAT_SIZE = 10**5 
 
 #for small data
 BASE_DIR = "data/Pandora18K_small_train_val_test_split/"

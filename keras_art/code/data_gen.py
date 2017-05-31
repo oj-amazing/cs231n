@@ -12,7 +12,7 @@ CAT_SIZE = 100
 #for small data
 BASE_DIR = "data/Pandora18K_small_train_val_test_split/"
 #for full data
-# BASE_DIR = "data/Pandora18K_train_val_test_split/"
+#BASE_DIR = "data/Pandora18K_train_val_test_split/"
 
 
 
@@ -26,7 +26,7 @@ np.random.seed(231)
 if __name__ == "__main__":
     total_count = 0
     for root, dirs, files in os.walk("data/Pandora_18k_flat/"):
-        for dir in dirs:
+        for dir in sorted(dirs):
             same_cat_count =0
             same_cat_count_train = 0
             same_cat_count_val = 0

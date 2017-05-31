@@ -12,7 +12,7 @@ CAT_SIZE = 10**5
 #for small data
 BASE_DIR = "data/Pandora18K_small_train_val_test_split/"
 #for full data
-# BASE_DIR = "data/Pandora18K_train_val_test_split/"
+#BASE_DIR = "data/Pandora18K_train_val_test_split/"
 
 
 

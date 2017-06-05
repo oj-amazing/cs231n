@@ -84,19 +84,19 @@ import os
 import pickle
 
 
-epochs = 2
+epochs = 50
 batch_size = 64
 history = dict()
 best_acc = 0
 for i in range(10):
     #0:lr,1:dense middle,2:dropout1, 3:dropout2
-    params=(10**np.random.uniform(low=-5, high=-1),np.random.randint(low = 50, high=800),np.random.uniform(low=0.3,high=0.8), np.random.uniform(low=0.3,high=0.8))
+    params=(10**np.random.uniform(low=-6, high=-4),np.random.randint(low = 50, high=800),np.random.uniform(low=0.4,high=0.9), np.random.uniform(low=0.4,high=0.9))
     print(params)
     model = Sequential()
     model.add(Flatten(input_shape=train_data.shape[1:]))
     model.add(Dropout(params[2]))#0.6
     model.add(Dense(params[1], activation='relu'))#256
-    model.add(Dropout(params[2]))#0.6
+    model.add(Dropout(params[3]))#0.6
     model.add(Dense(18, activation='softmax'))
 
     model.compile(optimizer=keras.optimizers.Adam(lr=params[0], beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0),
@@ -126,6 +126,7 @@ for i in range(10):
         print("history saved at iteration %s"%i)
         print("best val_acc so far: %s"%max(history.keys()))
         pickle.dump(history, open(os.path.join(weight_dir,'history_%s.p'%pretrained_model),'w'))
+    del model
     
 print(history)
 pickle.dump(history, open(os.path.join(weight_dir,'history_%s.p'%pretrained_model),'w'))
